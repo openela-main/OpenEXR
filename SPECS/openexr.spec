@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.1
-Release:        2%{?dist}
+Release:        2%{?dist}.1
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD
@@ -15,6 +15,8 @@ BuildRequires:  boost-devel
 BuildRequires:  imath-devel
 BuildRequires:  python%{python3_pkgversion}-devel
 BuildRequires:  zlib-devel
+
+Patch1:         openexr-CVE-2023-5481.patch
 
 Obsoletes:      OpenEXR < 2.5.3
 Provides:       OpenEXR = %{version}-%{release}
@@ -126,6 +128,9 @@ Summary:        Development files for %{name}
 
 
 %changelog
+* Tue Oct 29 2024 Stepan Broz <sbroz@redhat.com> - 3.1.1-2.1
+- fix CVE-2023-5481 (RHEL-64162)
+
 * Mon Aug 23 2021 Josef Ridky <jridky@redhat.com> - 3.1.1-2
 - fix issue with tests on specified architectures
 
