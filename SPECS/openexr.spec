@@ -128,7 +128,7 @@ Summary:        Development files for %{name}
 
 
 %changelog
-* Tue Oct 29 2024 Stepan Broz <sbroz@redhat.com> - 3.1.1-2.1
+* Wed Oct 23 2024 Josef Ridky <jridky@redhat.com> - 3.1.1-2.1
 - fix CVE-2023-5481 (RHEL-64162)
 
 * Mon Aug 23 2021 Josef Ridky <jridky@redhat.com> - 3.1.1-2
