@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.1
-Release:        2%{?dist}.1
+Release:        3%{?dist}
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD
@@ -128,8 +128,8 @@ Summary:        Development files for %{name}
 
 
 %changelog
-* Wed Oct 23 2024 Josef Ridky <jridky@redhat.com> - 3.1.1-2.1
-- fix CVE-2023-5481 (RHEL-64162)
+* Wed Oct 23 2024 Josef Ridky <jridky@redhat.com> - 3.1.1-3
+- fix CVE-2023-5481 (RHEL-23879)
 
 * Mon Aug 23 2021 Josef Ridky <jridky@redhat.com> - 3.1.1-2
 - fix issue with tests on specified architectures
