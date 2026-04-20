@@ -1,7 +1,7 @@
 Name:	 OpenEXR
 Summary: A high dynamic-range (HDR) image file format
 Version: 2.2.0
-Release: 12%{?dist}
+Release: 12%{?dist}.1
 
 License: BSD
 URL:	 http://www.openexr.com/
@@ -9,6 +9,8 @@ Source0: http://download.savannah.nongnu.org/releases/openexr/openexr-%{version}
 # fix tests for big endian arches
 # https://github.com/openexr/openexr/issues/81
 Patch0:  openexr-2.1.0-bigendian.patch
+# Fix CVE 2026-27622
+Patch1:  openexr-CVE-2026-27622.patch
 
 Obsoletes: openexr < %{version}-%{release}
 Provides:  openexr = %{version}-%{release}
@@ -45,7 +47,7 @@ Summary: %{name} runtime libraries
 %prep
 %setup -q -n openexr-%{version}
 %patch0 -p1 -b .bigendian
-
+%patch1 -p1 -b .CVE-2026-27622
 
 %build
 %configure --disable-static
@@ -91,6 +93,9 @@ make %{?_smp_mflags} check ||:
 
 
 %changelog
+* Tue Apr 14 2026 Josef Ridky <jridky@redhat.com> - 2.2.0-12.1
+- fix CVE-2026-27622
+
 * Tue Dec 15 2020 Owen Taylor <otaylor@redhat.com> - 2.2.0-12
 - In check, don't override PKG_CONFIG_PATH from the environment (#1907528)
 
