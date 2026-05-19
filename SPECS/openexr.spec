@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.10
-Release:        8%{?dist}.2
+Release:        8%{?dist}.1
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD-3-Clause
@@ -21,8 +21,6 @@ Patch2:         gcc14.patch
 Patch3:         openexr-3.1.10-CVE-2023-5841.patch
 # Fix CVE 2026-27622
 Patch4:         openexr-CVE-2026-27622.patch
-# Fix CVE 2026-34588
-Patch5:         openexr-CVE-2026-34588.patch
 
 BuildRequires:  cmake gcc gcc-c++
 BuildRequires:  boost-devel
@@ -32,7 +30,6 @@ BuildRequires:  zlib-devel
 
 Obsoletes:      OpenEXR < 2.5.3
 Provides:       OpenEXR = %{version}-%{release}
-Requires:       openexr-libs%{?_isa} = %{version}-%{release}
 
 %description
 OpenEXR is an open-source high-dynamic-range floating-point image file format
@@ -162,9 +159,6 @@ EXCLUDE_REGEX='ReadDeep|DWA[AB]Compression|testCompression|Rgba|SampleImages|Sha
 
 
 %changelog
-* Tue Apr 28 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.2
-- fix CVE-2026-34588
-
 * Mon Mar 23 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.1
 - fix CVE-2026-27622
 
