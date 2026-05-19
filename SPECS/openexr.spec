@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.1
-Release:        3%{?dist}.2
+Release:        3%{?dist}.1
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD
@@ -19,12 +19,9 @@ BuildRequires:  zlib-devel
 Patch1:         openexr-CVE-2023-5481.patch
 # Fix CVE 2026-27622
 Patch2:         openexr-CVE-2026-27622.patch
-# Fix CVE 2026-34588
-Patch3:         openexr-CVE-2026-34588.patch
 
 Obsoletes:      OpenEXR < 2.5.3
 Provides:       OpenEXR = %{version}-%{release}
-Requires:       openexr-libs%{?_isa} = %{version}-%{release}
 
 %description
 OpenEXR is an open-source high-dynamic-range floating-point image file format
@@ -38,6 +35,7 @@ This package containes the binaries for OpenEXR.
 Summary:        OpenEXR Libraries
 Provides:       OpenEXR-libs = %{version}-%{release}
 Obsoletes:      OpenEXR-libs < 2.5.3
+Requires:       openexr-libs = %{version}-%{release}
 
 %description libs
 OpenEXR is an open-source high-dynamic-range floating-point image file format
@@ -133,10 +131,7 @@ Summary:        Development files for %{name}
 
 
 %changelog
-* Tue Apr 28 2026 Josef Ridky <jridky@redhat.com> - 3.1.1-3.2
-- fix CVE-2026-34588
-
-* Wed Apr 01 2026 Josef Ridky <jridky@redhat.com> - 3.1.1-3.1
+* Tue Mar 31 2026 Josef Ridky <jridky@redhat.com> - 3.1.1-3.1
 - fix CVE-2026-27622
 
 * Wed Oct 23 2024 Josef Ridky <jridky@redhat.com> - 3.1.1-3
