@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.10
-Release:        8%{?dist}.2
+Release:        8%{?dist}.3
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD-3-Clause
@@ -23,6 +23,10 @@ Patch3:         openexr-3.1.10-CVE-2023-5841.patch
 Patch4:         openexr-CVE-2026-27622.patch
 # Fix CVE 2026-34588
 Patch5:         openexr-CVE-2026-34588.patch
+# Fix CVE-2026-41142
+Patch6:         openexr-CVE-2026-41142.patch
+# Fix CVE-2026-42216
+Patch7:         openexr-CVE-2026-42216.patch
 
 BuildRequires:  cmake gcc gcc-c++
 BuildRequires:  boost-devel
@@ -162,6 +166,10 @@ EXCLUDE_REGEX='ReadDeep|DWA[AB]Compression|testCompression|Rgba|SampleImages|Sha
 
 
 %changelog
+* Fri Jun 26 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.3
+- fix CVE-2026-41142
+- fix CVE-2026-42216
+
 * Tue Apr 28 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.2
 - fix CVE-2026-34588
 
