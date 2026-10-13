@@ -1,7 +1,7 @@
 Name:	 OpenEXR
 Summary: A high dynamic-range (HDR) image file format
 Version: 2.2.0
-Release: 12%{?dist}.1
+Release: 12%{?dist}.3
 
 License: BSD
 URL:	 http://www.openexr.com/
@@ -11,6 +11,12 @@ Source0: http://download.savannah.nongnu.org/releases/openexr/openexr-%{version}
 Patch0:  openexr-2.1.0-bigendian.patch
 # Fix CVE 2026-27622
 Patch1:  openexr-CVE-2026-27622.patch
+# Fix CVE-2026-68515
+Patch2:  openexr-CVE-2026-68515.patch
+# Fix CVE-2026-59184 CVE-2026-59981 CVE-2026-59189
+Patch3:  OpenEXR-CVE-2026-59981.patch
+# Fix CVE-2026-59186
+Patch4:  OpenEXR-CVE-2026-59186.patch
 
 Obsoletes: openexr < %{version}-%{release}
 Provides:  openexr = %{version}-%{release}
@@ -48,6 +54,9 @@ Summary: %{name} runtime libraries
 %setup -q -n openexr-%{version}
 %patch0 -p1 -b .bigendian
 %patch1 -p1 -b .CVE-2026-27622
+%patch2 -p1 -b .CVE-2026-68515
+%patch3 -p1 -b .CVE-2026-59981
+%patch4 -p1 -b .CVE-2026-59186
 
 %build
 %configure --disable-static
@@ -93,6 +102,15 @@ make %{?_smp_mflags} check ||:
 
 
 %changelog
+* Mon Oct 05 2026 Josef Ridky <jridky@redhat.com> - 2.2.0-12.3
+- fix CVE-2026-59184
+- fix CVE-2026-59981
+- fix CVE-2026-59189
+- fix CVE-2026-59186
+
+* Wed Sep 02 2026 Josef Ridky <jridky@redhat.com> - 2.2.0-12.2
+- fix CVE-2026-68515
+
 * Tue Apr 14 2026 Josef Ridky <jridky@redhat.com> - 2.2.0-12.1
 - fix CVE-2026-27622
 
