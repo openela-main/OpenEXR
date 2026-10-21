@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.1
-Release:        3%{?dist}.4
+Release:        3%{?dist}.5
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD
@@ -27,6 +27,10 @@ Patch4:         openexr-CVE-2026-41142.patch
 Patch5:         openexr-CVE-2026-42216.patch
 # Fix CVE-2026-68515
 Patch6:         openexr-CVE-2026-68515.patch
+# Fix CVE-2026-59982, CVE-2026-59184, CVE-2026-59189, CVE-2026-59981
+Patch7:         openexr-CVE-2026-59982.patch
+# Fix CVE-2026-34544
+Patch8:         openexr-CVE-2026-34544.patch
 
 Obsoletes:      OpenEXR < 2.5.3
 Provides:       OpenEXR = %{version}-%{release}
@@ -139,6 +143,13 @@ Summary:        Development files for %{name}
 
 
 %changelog
+* Mon Oct 05 2026 Josef Ridky <jridky@redhat.com> - 3.1.1-3.5
+- fix CVE-2026-59982
+- fix CVE-2026-59184
+- fix CVE-2026-59189
+- fix CVE-2026-59981
+- fix CVE-2026-34544
+
 * Wed Sep 02 2026 Josef Ridky <jridky@redhat.com> - 3.1.1-3.4
 - fix CVE-2026-68515
 
