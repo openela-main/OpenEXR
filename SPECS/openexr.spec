@@ -3,7 +3,7 @@
 
 Name:           openexr
 Version:        3.1.10
-Release:        8%{?dist}.5
+Release:        12%{?dist}
 Summary:        Provides the specification and reference implementation of the EXR file format
 
 License:        BSD-3-Clause
@@ -27,12 +27,6 @@ Patch5:         openexr-CVE-2026-34588.patch
 Patch6:         openexr-CVE-2026-41142.patch
 # Fix CVE-2026-42216
 Patch7:         openexr-CVE-2026-42216.patch
-# Fix CVE-2026-68515
-Patch8:         openexr-CVE-2026-68515.patch
-# Fix CVE-2026-59982, CVE-2026-59184, CVE-2026-59189, CVE-2026-59981
-Patch9:         openexr-CVE-2026-59982.patch
-# Fix CVE-2026-34544
-Patch10:        openexr-CVE-2026-34544.patch
 
 BuildRequires:  cmake gcc gcc-c++
 BuildRequires:  boost-devel
@@ -172,24 +166,17 @@ EXCLUDE_REGEX='ReadDeep|DWA[AB]Compression|testCompression|Rgba|SampleImages|Sha
 
 
 %changelog
-* Mon Oct 05 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.5
-- fix CVE-2026-59982
-- fix CVE-2026-59184
-- fix CVE-2026-59189
-- fix CVE-2026-59981
-- fix CVE-2026-34544
-
-* Wed Sep 02 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.4
-- fix CVE-2026-68515
-
-* Fri Jun 26 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.3
+* Thu Jun 25 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-12
 - fix CVE-2026-41142
 - fix CVE-2026-42216
 
-* Tue Apr 28 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.2
+* Tue Apr 28 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-11
+- fix rpmspec error
+
+* Mon Apr 27 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-10
 - fix CVE-2026-34588
 
-* Mon Mar 23 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-8.1
+* Mon Mar 23 2026 Josef Ridky <jridky@redhat.com> - 3.1.10-9
 - fix CVE-2026-27622
 
 * Tue Oct 29 2024 Troy Dawson <tdawson@redhat.com> - 3.1.10-8
